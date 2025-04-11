@@ -1,0 +1,30 @@
+#include <stdio.h>
+
+int main() {
+    int levelDemand;
+    double distance, period;
+    
+    printf("Введите уровень спроса (от 1 до 100): ");
+    scanf("%d", &levelDemand);
+
+    if (levelDemand < 1 || levelDemand > 100) {
+        printf("Ошибка! Уровень спроса должен быть от 1 до 100.\n");
+        return 1;
+    }
+
+    printf("Введите длину маршрута (в километрах): ");
+    scanf("%lf", &distance);
+    printf("Введите длительность маршрута (в минутах): ");
+    scanf("%lf", &period);
+
+    double base_price = 150.0;
+    double cost_km = 10.0;
+    double cost_min = 5.0;
+    double commission = 29 + (levelDemand % 41);
+
+    double total_cost = base_price + (cost_km * distance) + (cost_min * period) + commission;
+
+    printf("Стоимость поездки: %.2f рублей\n", total_cost);
+
+    return 0;
+}
