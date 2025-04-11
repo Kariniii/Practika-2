@@ -1,0 +1,40 @@
+#include <stdio.h>
+
+int main() {
+    
+    float height;
+    float first_tall_student = -1;
+    float second_tall_student = -1;
+    int first_student = 1;
+
+    printf("Введите рост ученика (для завершения программы введите -1):\n");
+
+    while (1) {
+        scanf("%f", &height);
+
+        if (height == -1) {
+            break;
+        }
+        if (first_student) {
+            first_tall_student = height;
+            printf("%.2f\n", first_tall_student);
+            first_student = 0;
+            continue;
+        }
+        if (height > first_tall_student) {
+            second_tall_student = first_tall_student;
+            first_tall_student = height;
+        } 
+        else if (height > second_tall_student || second_tall_student == -1) {
+            second_tall_student = height;
+        }
+        if (first_tall_student != -1) {
+            printf("%.2f\n", first_tall_student);
+        }
+        if (second_tall_student != -1) {
+            printf("%.2f\n", second_tall_student);
+        }
+    }
+
+    return 0;
+}
