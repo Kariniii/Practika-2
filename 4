@@ -1,0 +1,22 @@
+#include <stdio.h>
+
+int main() {
+    
+    printf("    |");
+    for (int a = 1; a <= 9; a++) {
+        printf(" %2d ", a);
+    }
+    printf("\n");
+    
+    printf("----|------------------------------------\n");
+
+    for (int a = 1; a <= 9; a++) {
+        printf(" %2d |", a);
+        for (int b = 1; b <= 9; b++) {
+            printf(" %2d ", a * b);
+        }
+        printf("\n");
+    }
+    
+    return 0;
+}
